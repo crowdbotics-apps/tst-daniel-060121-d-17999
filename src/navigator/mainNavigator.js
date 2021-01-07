@@ -1,10 +1,12 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import {createDrawerNavigator} from 'react-navigation-drawer';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 
 import SplashScreen from "../features/SplashScreen";
 import SideMenu from './sideMenu';
 //@BlueprintImportInsertion
+import BasicLoginSignupNavigator from "../features/BasicLoginSignup116849/navigator";
+import UserProfileNavigator from "../features/SimpleUserProfile216850/navigator";
 
 /**
  * new navigators can be imported here
@@ -12,12 +14,17 @@ import SideMenu from './sideMenu';
 
 const AppNavigator = {
 
-    //@BlueprintNavigationInsertion
-
-    /** new navigators can be added here */
-    SplashScreen: {
-      screen: SplashScreen
-    }
+  //@BlueprintNavigationInsertion
+  BasicLoginSignup: {
+    screen: BasicLoginSignupNavigator
+  },
+  UserProfile: {
+    screen: UserProfileNavigator
+  },
+  /** new navigators can be added here */
+  SplashScreen: {
+    screen: SplashScreen
+  }
 };
 
 const DrawerAppNavigator = createDrawerNavigator(

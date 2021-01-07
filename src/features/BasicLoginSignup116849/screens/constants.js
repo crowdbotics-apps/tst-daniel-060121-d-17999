@@ -3,4 +3,4 @@ export const BACKGROUND_URL = "https://crowdbotics-slack-dev.s3.amazonaws.com/me
 export const emailValidationRegex = /^[^\s]+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 // Change here the  name of the screen you want to redirect after Login
-export const HOME_SCREEN_NAME = "BlankScreen1186626" 
+export const HOME_SCREEN_NAME = "UserProfile"

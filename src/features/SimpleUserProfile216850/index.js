@@ -55,14 +55,14 @@ export class UserDetail extends Component {
             <ActivityIndicator color={Color.steel} />
           </View>
         ) : (
-          <View>
-            {isEdit ? (
-              <EditUser {...this.props} />
-            ) : (
-              <ViewUser {...this.props} />
-            )}
-          </View>
-        )}
+            <View>
+              {isEdit ? (
+                <EditUser {...this.props} />
+              ) : (
+                  <ViewUser {...this.props} />
+                )}
+            </View>
+          )}
       </ScrollView>
     );
   }
@@ -70,8 +70,14 @@ export class UserDetail extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   const id =
-    ownProps.navigation.getParam('id', 'UserProfile') ||
     state.authReducer.user.id;
+  //ownProps.navigation.getParam('id', 'UserProfile') ||
+
+  console.log("id", id)
+  console.log("user.id", state.authReducer.user.id)
+
+  console.log(state.userReducer.users)
+
   return {
     token: state.authReducer.token,
     auth_user: state.authReducer.user,
