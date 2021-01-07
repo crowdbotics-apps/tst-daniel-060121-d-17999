@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
@@ -17,10 +18,33 @@ class User(AbstractUser):
     This model represents the User instance of the system, login system and
     everything that relates with an `User` is represented by this model.
     """
+    name = models.CharField(
+        null=True,
+        blank=True,
+        max_length=255,
+    )
+    first_name = models.CharField(
+        max_length=256,
+        null=True,
+        blank=True,
+    )
+    last_name = models.CharField(
+        max_length=256,
+        null=True,
+        blank=True,
+    )
+    bio = models.CharField(
+        max_length=256,
+        null=True,
+        blank=True,
+    )
+    birth_date = models.DateField(
+        null=True,
+        blank=True,
+    )
 
-    # First Name and Last Name do not cover name patterns
-    # around the globe.
-    name = models.CharField(_("Name of User"), blank=True, null=True, max_length=255)
+    def get_absolute_url(self):
+        return reverse("users:detail", kwargs={"username": self.username})
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
